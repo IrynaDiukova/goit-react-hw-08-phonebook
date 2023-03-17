@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../../redux/contactsSlice';
-import { addContact } from '../../redux/contactsOperations';
-import css from './ContactForm.module.css'; 
+import { getContacts } from '../../redux/contacts/contactsSlice';
+import { addContact } from '../../redux/contacts/contactsOperations';
+import { Box, Button, TextField } from '@mui/material';
 
 export const ContactForm = () => {
     const [name, setName] = useState('');
@@ -50,32 +50,42 @@ export const ContactForm = () => {
     };
 
     return (
-        <form className={css.form} onSubmit={handleSubmit}>
-            <label>
-                Name 
-                <input
-                type="text"
-                name="name"
+        <Box component='form' sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: 300,
+        }} onSubmit={handleSubmit}>
+            <TextField
+                fullWidth
+                id='standard-basic'
+                label='Name'
+                variant='standard'
+                size='small'
                 value={name}
                 onChange={handleChange}
+                type='text'
+                name='name'
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
             />
-            </label>
-            <label>
-                Number 
-                <input
-                type="tel"
-                name="number"
+            <TextField
+                sx={{ mb: 2 }}
+                fullWidth
+                id='standard-basic'
+                label='Phone number'
+                variant='standard'
+                size='small'
                 value={number}
                 onChange={handleChange}
-                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                type='number'
+                name='number'
+                pattern='\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}'
+                title='Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
                 required
-                />
-            </label>
-            <button className={css.btn} type="submit">Add contact</button>       
-        </form>
+            />
+            <Button variant='contained' size='small' type='submit'>Add contact</Button>
+        </Box>
     );
 };
