@@ -1,15 +1,13 @@
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { ContactList } from 'components/ContactList/ContactList';
-import { Filter } from 'components/Filter/Filter';
-import { SkeletonLoader } from 'components/SkeletonLoader/SkeletonLoader';
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { ContactForm } from '../components/ContactForm/ContactForm';
+import { Filter } from '../components/Filter/Filter';
+import { ContactList } from '../components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/contacts/contactsOperations';
-import { getLoadingState } from 'redux/contacts/contactsSlice';
-
+import { fetchContacts } from '../redux/contacts/contactsOperations';
+import { Box, Typography } from '@mui/material';
+import { getLoadingState } from '../redux/contacts/contactsSlice';
+import { SkeletonLoader } from '../components/SkeletonLoader/SkeletonLoader';
+import { Helmet } from 'react-helmet';
 
 export const ContactPage = () => {
   const dispatch = useDispatch();

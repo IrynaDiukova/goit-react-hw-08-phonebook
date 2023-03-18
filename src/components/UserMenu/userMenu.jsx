@@ -21,8 +21,7 @@ export const UserMenu = () => {
       <IconButton
         size="large"
         aria-label="logout button"
-        onClick={handleLogOut}
-      >
+        onClick={handleLogOut}>
         <LogoutIcon />
       </IconButton>
     </Box>
