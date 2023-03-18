@@ -16,7 +16,7 @@ export const UserMenu = () => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
       <Typography variant="p" component="p">
-        Welcome, {user.email}
+        Welcome, {user.name}
       </Typography>
       <IconButton
         size="large"
