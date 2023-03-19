@@ -62,7 +62,7 @@ export const RegisterForm = () => {
           aria-describedby="component-helper-text"
         />
         <FormHelperText id="component-helper-text">
-          Password must be at least 7 characters length
+          Password must be at least 8 characters length
         </FormHelperText>
         <Button sx={{ width: 100, mt: 2 }} variant="outlined" type="submit">
           Register
